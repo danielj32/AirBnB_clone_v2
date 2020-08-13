@@ -14,7 +14,7 @@ class FileStorage:
             dct = {}
             for key, value in self.__objects.items():
                 if type(value) == cls:
-                    dct[key] == self.__objects[key]
+                    dct[key] = self.__objects[key]
                 return dct
             return FileStorage.__objects
 
@@ -42,18 +42,11 @@ class FileStorage:
         from models.city import City
         from models.amenity import Amenity
         from models.review import Review
-
-        classes = {
-                    'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                    'State': State, 'City': City, 'Amenity': Amenity,
-                    'Review': Review
-                  }
         try:
-            temp = {}
-            with open(FileStorage.__file_path, 'r') as f:
-                temp = json.load(f)
-                for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+            with open(self.__file_path, 'r', encoding="UTF-8") as f:
+                for key, value in (json.load(f)).items():
+                    value = eval(value["__class__"])(**value)
+                    self.__objects[key] = value
         except FileNotFoundError:
             pass
 
