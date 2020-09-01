@@ -19,7 +19,7 @@ def disp_hbnb():
 @app.route('/c/<text>')
 def show_text(txt):
     """ display /c/<text> """
-    return 'C %s' % txt.replace("_", " ")
+    return 'C %s' % txt.replace('_', ' ')
 
 
 if __name__ == "__main__":
