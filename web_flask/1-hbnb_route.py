@@ -13,7 +13,7 @@ def hello_framework():
 @app.route('/hbnb')
 def disp_hbnb():
     """ display /hbnb! """
-    return "“HBNB"
+    return "HBNB"
 
 
 if __name__ == "__main__":
