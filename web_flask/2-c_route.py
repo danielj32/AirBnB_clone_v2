@@ -24,3 +24,4 @@ def show_text(txt):
 
 if __name__ == "__main__":
     app.run()
+    app.url_map.strict_slashes = False
