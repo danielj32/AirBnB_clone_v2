@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Script that starts a Flask web application.
-"""
+"""init Flask web app"""
 from flask import Flask
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -9,9 +7,7 @@ app.url_map.strict_slashes = False
 
 @app.route('/')
 def hello_framework():
-    """
-    Function to print hello HBNB!
-    """
+    """ display Hello HBNB! """
     return 'Hello HBNB!'
 
 
