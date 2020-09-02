@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""init Flask web app"""
+"""
+Script that starts a Flask web application.
+"""
 from flask import Flask
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -7,7 +9,9 @@ app.url_map.strict_slashes = False
 
 @app.route('/')
 def hello_framework():
-    """ display Hello HBNB! """
+    """
+    Function to print hello HBNB!
+    """
     return 'Hello HBNB!'
 
 
@@ -23,12 +27,12 @@ def c_is_text(text):
     return 'C %s' % text.replace('_', ' ')
 
 
-@app.route('/python')
-@app.route('/python/(<text>)')
-def Python_is_text(txt="is cool"):
-    """ display /python/(<text>) """
-    return 'Python %s' % txt.replace('_', ' ')
+@app.route("/python")
+@app.route('/python/<text>/')
+def py_text(text='is cool'):
+    """hbnb"""
+    return 'Python %s' % text.replace('_', ' ')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
